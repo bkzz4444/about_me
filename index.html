@@ -1,352 +1,83 @@
-<html>
- <head>
-  <title>
-   ชอบหีครับ
-  </title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <style>
-   body {
-            background-color: #0d0d0d;
-            color: #00ff00;
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        .section {
-            border: 2px solid #00ff00;
-            padding: 20px;
-            margin: 20px;
-            width: 80%;
-            max-width: 600px;
-            text-align: center;
-            position: relative;
-            background-color: rgba(0, 0, 0, 0.8);
-            box-shadow: 0 0 10px #00ff00;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .section:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px #00ff00;
-        }
-        .section h1, .section h2, .section p {
-            margin: 10px 0;
-        }
-        .section h1 {
-            font-size: 2em;
-            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
-            color: #00ff00;
-        }
-        .section h2 {
-            font-size: 1.5em;
-            color: #00ff00;
-            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
-        }
-        .section p {
-            font-size: 1em;
-            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
-            color: #00ff00;
-        }
-        .section img {
-            width: 100%;
-            height: auto;
-            border: 2px solid #00ff00;
-            box-shadow: 0 0 10px #00ff00;
-        }
-        .section .icon {
-            font-size: 3em;
-            color: #00ff00;
-            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
-        }
-        .section .number {
-            font-size: 2em;
-            color: #00ff00;
-            border: 2px solid #00ff00;
-            padding: 10px;
-            display: inline-block;
-            margin: 10px 0;
-            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
-        }
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 600px;
-            margin: 20px 0;
-        }
-        .navigation a {
-            color: #00ff00;
-            text-decoration: none;
-            font-size: 1.2em;
-            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
-            transition: color 0.3s, text-shadow 0.3s;
-        }
-        .navigation a:hover {
-            text-decoration: underline;
-            color: #ffffff;
-            text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
-        }
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
-            background: #0d0d0d;
-        }
-        .digit {
-            position: absolute;
-            font-size: 1.5em;
-            color: #00ff00;
-            animation: fall 5s linear infinite;
-        }
-        @keyframes fall {
-            0% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
-        }
-        .contact-info {
-            margin-top: 20px;
-            font-size: 1em;
-            color: #00ff00;
-            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
-        }
-        .glitch {
-            position: relative;
-            color: #00ff00;
-            font-size: 2em;
-            animation: glitch 1s infinite;
-        }
-        .glitch::before, .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: #0d0d0d;
-            overflow: hidden;
-        }
-        .glitch::before {
-            left: 2px;
-            text-shadow: -2px 0 red;
-            clip: rect(24px, 550px, 90px, 0);
-            animation: glitch-anim 2s infinite linear alternate-reverse;
-        }
-        .glitch::after {
-            left: -2px;
-            text-shadow: -2px 0 blue;
-            clip: rect(85px, 550px, 140px, 0);
-            animation: glitch-anim2 2s infinite linear alternate-reverse;
-        }
-        @keyframes glitch {
-            0% {
-                transform: translate(0);
-            }
-            20% {
-                transform: translate(-2px, 2px);
-            }
-            40% {
-                transform: translate(-2px, -2px);
-            }
-            60% {
-                transform: translate(2px, 2px);
-            }
-            80% {
-                transform: translate(2px, -2px);
-            }
-            100% {
-                transform: translate(0);
-            }
-        }
-        @keyframes glitch-anim {
-            0% {
-                clip: rect(42px, 9999px, 44px, 0);
-            }
-            5% {
-                clip: rect(12px, 9999px, 14px, 0);
-            }
-            10% {
-                clip: rect(85px, 9999px, 90px, 0);
-            }
-            15% {
-                clip: rect(42px, 9999px, 44px, 0);
-            }
-            20% {
-                clip: rect(12px, 9999px, 14px, 0);
-            }
-            25% {
-                clip: rect(85px, 9999px, 90px, 0);
-            }
-            30% {
-                clip: rect(42px, 9999px, 44px, 0);
-            }
-            35% {
-                clip: rect(12px, 9999px, 14px, 0);
-            }
-            40% {
-                clip: rect(85px, 9999px, 90px, 0);
-            }
-            45% {
-                clip: rect(42px, 9999px, 44px, 0);
-            }
-            50% {
-                clip: rect(12px, 9999px, 14px, 0);
-            }
-            55% {
-                clip: rect(85px, 9999px, 90px, 0);
-            }
-            60% {
-                clip: rect(42px, 9999px, 44px, 0);
-            }
-            65% {
-                clip: rect(12px, 9999px, 14px, 0);
-            }
-            70% {
-                clip: rect(85px, 9999px, 90px, 0);
-            }
-            75% {
-                clip: rect(42px, 9999px, 44px, 0);
-            }
-            80% {
-                clip: rect(12px, 9999px, 14px, 0);
-            }
-            85% {
-                clip: rect(85px, 9999px, 90px, 0);
-            }
-            90% {
-                clip: rect(42px, 9999px, 44px, 0);
-            }
-            95% {
-                clip: rect(12px, 9999px, 14px, 0);
-            }
-            100% {
-                clip: rect(85px, 9999px, 90px, 0);
-            }
-        }
-        @keyframes glitch-anim2 {
-            0% {
-                clip: rect(12px, 9999px, 14px, 0);
-            }
-            5% {
-                clip: rect(42px, 9999px, 44px, 0);
-            }
-            10% {
-                clip: rect(85px, 9999px, 90px, 0);
-            }
-            15% {
-                clip: rect(12px, 9999px, 14px, 0);
-            }
-            20% {
-                clip: rect(42px, 9999px, 44px, 0);
-            }
-            25% {
-                clip: rect(85px, 9999px, 90px, 0);
-            }
-            30% {
-                clip: rect(12px, 9999px, 14px, 0);
-            }
-            35% {
-                clip: rect(42px, 9999px, 44px, 0);
-            }
-            40% {
-                clip: rect(85px, 9999px, 90px, 0);
-            }
-            45% {
-                clip: rect(12px, 9999px, 14px, 0);
-            }
-            50% {
-                clip: rect(42px, 9999px, 44px, 0);
-            }
-            55% {
-                clip: rect(85px, 9999px, 90px, 0);
-            }
-            60% {
-                clip: rect(12px, 9999px, 14px, 0);
-            }
-            65% {
-                clip: rect(42px, 9999px, 44px, 0);
-            }
-            70% {
-                clip: rect(85px, 9999px, 90px, 0);
-            }
-            75% {
-                clip: rect(12px, 9999px, 14px, 0);
-            }
-            80% {
-                clip: rect(42px, 9999px, 44px, 0);
-            }
-            85% {
-                clip: rect(85px, 9999px, 90px, 0);
-            }
-            90% {
-                clip: rect(12px, 9999px, 14px, 0);
-            }
-            95% {
-                clip: rect(42px, 9999px, 44px, 0);
-            }
-            100% {
-                clip: rect(85px, 9999px, 90px, 0);
-            }
-        }
-  </style>
- </head>
- <body>
-  <div class="background">
-  </div>
-  <div class="container">
-   <div class="section">
-    <h1 class="glitch" data-text="About me">
-     About me
-    </h1>
-    <p>
-    วันๆไม่ทําอะไรนอนอ้วนเล่นเกมครับ
-    </p>
-    <i class="fas fa-user icon">
-    </i>
-    <div class="contact-info">
-     <p>
-      FACEBOOK: Natchanon Suklee
-     </p>
-     <p>
-      IG: iisme.night
-     </p>
-    </div>
-   </div>
-   <div class="section">
-    <h1 class="glitch" data-text="เกมที่ฉันเล่น">
-     ชอบหีครับ
-    
-  </div>
-  <script>
-        const background = document.querySelector('.background');
-        const createDigit = () => {
-            const digit = document.createElement('div');
-            digit.classList.add('digit');
-            digit.textContent = Math.random() > 0.5 ? '0' : '1';
-            digit.style.left = `${Math.random() * 100}vw`;
-            digit.style.animationDuration = `${Math.random() * 3 + 2}s`;
-            background.appendChild(digit);
-            setTimeout(() => {
-                digit.remove();
-            }, 5000);
-        };
-        setInterval(createDigit, 100);
-  </script>
- </body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" as="image" href="https://cdn.readawrite.com/articles/7379/7378639/thumbnail/large.gif?1"><link rel="preload" as="image" href="https://assets.guns.lol/idle.png"><link rel="preload" as="image" href="https://cdn.discordapp.com/emojis/1152174753336000572.webp"><link rel="stylesheet" href="css/005225d0ec675b50.css" data-precedence="next"><link rel="stylesheet" href="css/a52125221b031caa.css" data-precedence="next"><link rel="preload" as="script" fetchpriority="low" href="/_next/static/chunks/webpack-bd2d8f038f745e2f.js"><script src="js/fd9d1056-e8c51e3d6e9b9f8c.js" async=""></script><script src="js/2117-fb16c9c5c0cb7705.js" async=""></script><script src="js/main-app-f8a78923f55fe5a6.js" async=""></script><script src="js/8003-eab033a3899727e4.js" async=""></script><script src="js/layout-ea326ffe687c83bc.js" async=""></script><script src="js/2972-3c247e65277a67e8.js" async=""></script><script src="js/not-found-4961e9c6b44c93ad.js" async=""></script><script src="js/7213-275a6e2c893ed645.js" async=""></script><script src="js/4942-1d681247d9b05394.js" async=""></script><script src="js/3719-48caaf1a376400f4.js" async=""></script><script src="js/816-8da4fb060cbd3a16.js" async=""></script><script src="js/3766-c4d5f5c8b51f6b49.js" async=""></script><script src="js/5905-1c81ef4ee5abe841.js" async=""></script><script src="js/1898-f24eebdd22a915e0.js" async=""></script><script src="js/2420-c1e590fc2f8b5720.js" async=""></script><script src="js/47-62f747fd61a399d6.js" async=""></script><script src="js/989-9843aed7ce356e94.js" async=""></script><script src="js/page-17d6447ef7ceb96e.js" async=""></script><link rel="preload" href="https://sa.guns.lol/latest.js" as="script"><link rel="preload" href="https://unpkg.com/cursor-effects@latest/dist/browser.js" as="script"><link rel="preload" href="https://assets.guns.lol/_pow.js" as="script"><link rel="preload" href="https://challenges.cloudflare.com/turnstile/v0/api.js" as="script"><link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png"><link rel="manifest" href="https://assets.guns.lol/favicon/site.webmanifest"><meta name="theme-color" content="#ffffff"><title>@Алексиос | guns.lol</title><meta name="description" content="MAMUAY<3 ><"><meta name="author" content="@Алексиос | guns.lol"><meta property="og:title" content="@Алексиос | guns.lol"><meta property="og:description" content="MAMUAY<3   ><"><meta property="og:image" content="og"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="@Алексиос | guns.lol"><meta name="twitter:description" content="MAMUAY<3  ><"><meta name="twitter:image" content="https://og.guns.lol/api/og?username=Алексиос&amp;t=1730299959058"><link href="https://api.fontshare.com/v2/css?f[]=satoshi@1&amp;f[]=array@400&amp;display=swap" rel="stylesheet"><script src="js/polyfills-42372ed130431b0a.js" nomodule=""></script></head><body><div class="eVL1nO_244378cdd5913f2" style="background-image:url(media/a728aa80-47c5-45c2-b677-c2ff989fc45a.mp4)"></div><div class="iUFBY2_4ac5c10f247eb26"><div class="s0YUa9_dbdc0f63fcf9ce2" style="font-weight:700;font-size:30px">Click</div></div><div class="nN0tlR_326d554dc9e3864"></div><script>(self.__next_s=self.__next_s||[]).push(["https://unpkg.com/cursor-effects@latest/dist/browser.js",{"id":"_cursor"}])</script><script>(self.__next_s=self.__next_s||[]).push([0,{"children":"\n                        new cursoreffects.trailingCursor({particles: 15, rate: 0.6, baseImageSrc: \"https://r2.guns.lol/fb751899-d0d9-4bab-b2a2-07dd1de8ceee.cur\"});\n                    ","id":"_cursorghost"}])</script><style>
+                    * {
+                      cursor: url(fb751899-d0d9-4bab-b2a2-07dd1de8ceee.cur) 16 16, auto !important;
+                    }
+                    </style><style>
+                ::-moz-selection {
+                    background: #ffffff;
+                    color: #ffffff;
+                }
+                ::selection {
+                    background: #ffffff;
+                    color: #ffffff;
+                }
+                </style><div class="pwcBDX_e606f195670897b" style="background-color:#ffffff"></div><div style="--presenceUsernameColor:#ffffff;--presenceStatusColor:rgba(255, 255, 255, 0.7);--presenceContainerBackground:rgba(255, 255, 255, 0.2);--presenceContainerBorder:2px solid rgba(255, 255, 255, 0.1);--discordServerMembers:rgba(255, 255, 255, 0.6);--secondTabBackground:rgba(255, 255, 255, 0.2);--secondTabBorder:2px solid rgba(255, 255, 255, 0.1);--discordMissingIcon:rgba(255, 255, 255, 0.25);--modernLayoutSeperator:rgba(255, 255, 255, 0.12);--modernLayoutSeperatorBorder:rgba(255, 255, 255, 0.12);--discordAvatarBorder:2px solid rgba(255, 255, 255, 0.15);--badgeContainerBackground:rgba(255, 255, 255, 0.2);--badgeContainerBorder:2px solid rgba(255, 255, 255, 0.04);--userBadge:18px;--textColor:#ffffff;--textColorDarker:rgba(255, 255, 255, 0.5);--iconColor:#ffffff;--backgroundColor:#ffffff;--joinStatus:rgba(255, 255, 255, 0.65);--audioPlayerBar:rgba(255, 255, 255, 0.35);--avatarBorder:2px solid rgba(255, 255, 255, 0.4);--containerColor:rgba(255, 255, 255, 0);--containerBlur:0px;--containerRadius:0px;--containerWidth:41rem;--containerPadding:27px 23px;--volumeBackgroundcolor:rgba(255, 255, 255, 0.2);--volumeBorder:2px solid rgba(255, 255, 255, 0.05);--colorUsernameGlow:0px 0px 16.5px #ffffff;--usernameEffects:url(https://assets.guns.lol/sparkle_typewriter.gif);--buttonBackground:rgba(255, 255, 255, 0.22);--buttonBorder:2px solid rgba(255, 255, 255, 0.12);--buttonRadius:12px;--buttonAlign:center;--buttonBackgroundHover:rgba(255, 255, 255, 0.32);--buttonBorderHover:2px solid rgba(255, 255, 255, 0.25);--buttonUrlColor:rgba(255, 255, 255, 0.65);--buttonShadow:rgba(255, 255, 255, 0.22) 0px 0px 15px;--profileViewsContainerBorder:2px solid rgba(0, 0, 0, 0)"><div class="jWbbZU_8629220724424aa"><span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTVolumeNotice0"><g fill="none" stroke="#fff" stroke-width="4"><path fill="#555" stroke-linejoin="round" d="M24 6v36c-7 0-12.201-9.16-12.201-9.16H6a2 2 0 0 1-2-2V17.01a2 2 0 0 1 2-2h5.799S17 6 24 6Z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M32 15a11.91 11.91 0 0 1 1.684 1.859A12.07 12.07 0 0 1 36 24c0 2.654-.846 5.107-2.278 7.09A11.936 11.936 0 0 1 32 33"></path><path stroke-linecap="round" d="M34.236 41.186C40.084 37.696 44 31.305 44 24c0-7.192-3.796-13.496-9.493-17.02"></path></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTVolumeNotice0)"></path></svg></span><div class="tcWwV1_c071c3527619a0c"><style>
+                                        .mantine-Slider-label {
+                                        display: none
+                                        }
+                                        .mantine-Slider-track::before {
+                                                background: var(--textColorDarker);
+                                            }
+                                        .mantine-Slider-bar {
+                                            background-color: var(--textColor)
+                                        }
+                                        .mantine-Slider-thumb {
+                                            border: 0.15rem solid var(--containerColor);
+                                            box-shadow: var(--textColorDarker) 0px 5px 25px 0px;
+                                        </style><div class="eM1Xld_65441dc180f8713"><h1 class="o0mnlN_31b537cf41e15a1"></h1><div class="smXZ0M_ad32a816426011a"><div class="mantine-Slider-root mantine-16d7kiv" tabindex="-1"><div class="mantine-12p37cx mantine-Slider-trackContainer"><div class="mantine-mu412o mantine-Slider-track"><div class="mantine-Slider-bar mantine-1pac8x3"></div><div class="mantine-Slider-thumb mantine-4bxu6y" style="left:100%" tabindex="0" role="slider" aria-label="" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100"></div></div></div><div class="mantine-s2z3jd mantine-Slider-marksContainer"></div><input type="hidden" value="100"></div></div></div></div></div><div class="cYWa52_8d25fbd2ec018e7"><div class="gLJ0VG_089e78ae7261139"><div style="position:fixed;width:100%;max-width:var(--containerWidth);display:flex;justify-content:center"><div class="q23z0w_02af604a2f0bd5f cYX9uG_b7e5cf8d0fc76e9" style="position:initial"><div class="aV5JOn_b25fe8f3e2eba51 cYX9uG_b7e5cf8d0fc76e9"><span class="qY9bX0_e3853d1f5b7b60f"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="4 4 16 16"><path fill="currentColor" d="M12 12q-1.65 0-2.825-1.175T8 8q0-1.65 1.175-2.825T12 4q1.65 0 2.825 1.175T16 8q0 1.65-1.175 2.825T12 12Zm-6 8q-.825 0-1.413-.588T4 18v-.8q0-.85.438-1.563T5.6 14.55q1.55-.775 3.15-1.163T12 13q1.65 0 3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2v.8q0 .825-.588 1.413T18 20H6Z"></path></svg></span><div class="oLcw5B_ec1dd5ac80a48bc"><div class="nB1W5V_bf5307a92b1d95f"><style>
+                                        .username-typewriter .Typewriter {
+                                            font-size: 36.5px;
+                                            font-weight: 600;
+                                            line-height: 41px;
+                                        }
+                                    </style><div class="username-typewriter nUBeT2_e44dbf9b06bad5f"><div class="Typewriter" data-testid="typewriter-wrapper"></div></div></div><h3 style="font-weight:550;font-size:18px"><div class="Typewriter" data-testid="typewriter-wrapper"></div></h3><h2 style="font-weight:400;font-size:13.5px">joined <!-- -->about 100 year<!-- --> ago</h2></div></div><style>
+                    .zNY0OZ_eaee5107d30fdb8 {
+                        max-width: initial;
+                    }
+                    .rGXA30_ebb0dc0e558c005 {
+                        display: none;
+                    }
+                    .xzRN0N_167257ca9e3d7ce {
+                        justify-content: space-between;
+                        width: 100%;
+                    }
+                    .zNY0OZ_eaee5107d30fdb8 {
+                        display: block;
+                    }
+                    @media (max-width: 720px) {
+                        .q23z0w_02af604a2f0bd5f {
+                            width: 95%;
+                            box-sizing: border-box;
+                        }
+                        .z5LV2c_f471df88ff8764d {
+                            max-width: 100%
+                        }
+                        .rGXA30_ebb0dc0e558c005 {
+                            display: inline;
+                        }
+                        false
+                    }
+                    @media (max-width: 430px) {
+                        .q23z0w_02af604a2f0bd5f {
+                            width: 100%!important;
+                        }
+                    }
+                    false
+                    </style><div class="lTRY2V_e366852bb071a48 cYX9uG_b7e5cf8d0fc76e9"><div class="jBc5i2_0465803cc4f83f8"><div class="xu5V32_c2c5c6ad9c7bcb3"><div class="zNY0OZ_eaee5107d30fdb8" style="margin-top:20px"><div class="mtYuGW_3a4a8dcc3beaf45"><div class="rcw0LN_7e7f93f4c67d51b"><div class="j2SvNY_ec83115ffbe6262"><img src="images/65b6554da763e3ac54d7527a056ae857.webp" alt="Discord Avatar"><img src="images/idle.png" class="aNRxGX_123666a39835a15" alt=""></div></div><div class="xzRN0N_167257ca9e3d7ce"><div class="z5LV2c_f471df88ff8764d"><div class="lZOU3N_1b6e8123b898c40"><span style="font-weight:600;font-size:20px">.Алексиос</span><div class="i0RV1U_3e1b38670f31f8b"></div></div><h3 style="font-weight:300;font-size:13px;display:flex;align-items:flex-end"><img src="images/1152174753336000572.webp" alt="Discord Emoji" class="xxZGcR_24f0a3d7182f5ab"><span>ขอให้รักครั้งนี้ดีกว่าที่ผ่านมา</span></h3></div><div class="lcYUNU_22f2e4a798123ad"></div></div></div></div></div><div class="xu5V32_c2c5c6ad9c7bcb3"><div class="r1ty0u_655364064a07d81"><iframe src="https://open.spotify.com/embed/track/5IjSQa0GXzI2pNSciJXWWv" height="80" width="100%" frameborder="0" allow="encrypted-media"></iframe></div></div></div></div><div class="m0wWyN_f625ca2a8c9c729 cYX9uG_b7e5cf8d0fc76e9"><div class="v1UXZB_87e32c7ed391a93"><div class="eGwYYW_f868b47b56a17c1 cR1Ycz_8cadb2f2abb9edb"><style>
+                                    .cR1Ycz_8cadb2f2abb9edb svg {
+                                        color: #ffffff!important;
+                                        filter: drop-shadow(#ffffff 1px 0 7px)!important;
+                                    }</style><a target="_blank" href="https://discord.com/users/467923991131062277"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="1.96 4.26 20.03 15.53"><path fill="currentColor" d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1a14.66 14.66 0 0 0-4.58 0a10.14 10.14 0 0 0-.53-1.1a16 16 0 0 0-4.13 1.3a17.33 17.33 0 0 0-3 11.59a16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83a3.39 3.39 0 0 0 .42-.33a11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84a12.41 12.41 0 0 0 1.08 1.78a16.44 16.44 0 0 0 5.06-2.59a17.22 17.22 0 0 0-3-11.59a16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2a1.93 1.93 0 0 1 1.8-2a1.93 1.93 0 0 1 1.8 2a1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2a1.93 1.93 0 0 1 1.8-2a1.92 1.92 0 0 1 1.8 2a1.92 1.92 0 0 1-1.8 2z"></path></svg></a></div><div class="eGwYYW_f868b47b56a17c1 bWRYSu_054b200b8dbbc7d"><style>
+                                    .bWRYSu_054b200b8dbbc7d svg {
+                                        color: #ffffff!important;
+                                        filter: drop-shadow(#ffffff 1px 0 7px)!important;
+                                    }</style><a target="_blank" href="https://instagram.com/iisme.night"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="3 2.98 18.01 18.04"><path fill="currentColor" d="M20.947 8.305a6.53 6.53 0 0 0-.419-2.216a4.61 4.61 0 0 0-2.633-2.633a6.606 6.606 0 0 0-2.186-.42c-.962-.043-1.267-.055-3.709-.055s-2.755 0-3.71.055a6.606 6.606 0 0 0-2.185.42a4.607 4.607 0 0 0-2.633 2.633a6.554 6.554 0 0 0-.419 2.185c-.043.963-.056 1.268-.056 3.71s0 2.754.056 3.71c.015.748.156 1.486.419 2.187a4.61 4.61 0 0 0 2.634 2.632a6.584 6.584 0 0 0 2.185.45c.963.043 1.268.056 3.71.056s2.755 0 3.71-.056a6.59 6.59 0 0 0 2.186-.419a4.615 4.615 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.187c.043-.962.056-1.267.056-3.71c-.002-2.442-.002-2.752-.058-3.709zm-8.953 8.297c-2.554 0-4.623-2.069-4.623-4.623s2.069-4.623 4.623-4.623a4.623 4.623 0 0 1 0 9.246zm4.807-8.339a1.077 1.077 0 0 1-1.078-1.078a1.077 1.077 0 1 1 2.155 0c0 .596-.482 1.078-1.077 1.078z"></path><circle cx="11.994" cy="11.979" r="3.003" fill="currentColor"></circle></svg></a></div><div class="eGwYYW_f868b47b56a17c1 vXZ9YF_c3bc08f8112281a"><style>
+                                    .vXZ9YF_c3bc08f8112281a svg {
+                                        color: #ffffff!important;
+                                        filter: drop-shadow(#ffffff 1px 0 7px)!important;
+                                    }</style><a target="_blank" href="https://facebook.com/natchanon.suklee/"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="2 2 20 19.95"><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95"></path></svg></a></div><div class="eGwYYW_f868b47b56a17c1 tnJcVy_6799432dd94e0fc"><style>
+                                    .tnJcVy_6799432dd94e0fc svg {
+                                        color: #ffffff!important;
+                                        filter: drop-shadow(#ffffff 1px 0 7px)!important;
+                                    }</style><a target="_blank" href="https://roblox.com/users/1357758185/profile"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0.16 0 23.68 24"><path fill="currentColor" d="M5.164 0L.16 18.928L18.836 24L23.84 5.072Zm8.747 15.354l-5.219-1.417l1.399-5.29l5.22 1.418l-1.4 5.29z"></path></svg></a></div></div></div><script>(self.__next_s=self.__next_s||[]).push(["https://assets.guns.lol/_pow.js",{"id":"_codescript"}])</script><script>(self.__next_s=self.__next_s||[]).push([0,{"children":"\n                            p = new _injPow(\"c7564c47a1972e668baad77f00dc5e0ef58593362116a40b39e9dcaa948\", \"5\", \"a1d8c6860b41196c571a2af5853e3083301b9e0c1f5192dab948337a673479a2\", !1)\n                            p.solvepow().then((async (o) => {\n                                if (o != null) {\n                                    await getResult(o.solution);\n                                }\n                            }))\n                        ","id":"_code"}])</script><div class="cf-turnstile" data-sitekey="0x4AAAAAAAgU7T2niLQD-TLm" data-callback="getToken"></div><div class="p3WVzB_599d5ef2ae28184 cYX9uG_b7e5cf8d0fc76e9" style="bottom:12px;left:15px"><span style="font-weight:550;font-size:14.5px"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"></path></svg> <!-- -->937</span></div></div></div></div></div></div><script src="js/webpack-bd2d8f038f745e2f.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"/_next/static/css/005225d0ec675b50.css\",\"style\"]\n2:HL[\"/_next/static/css/a52125221b031caa.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"3:I[12846,[],\"\"]\n6:I[4707,[],\"\"]\n8:I[36423,[],\"\"]\n9:I[88003,[\"8003\",\"static/chunks/8003-eab033a3899727e4.js\",\"3185\",\"static/chunks/app/layout-ea326ffe687c83bc.js\"],\"\"]\na:I[72972,[\"2972\",\"static/chunks/2972-3c247e65277a67e8.js\",\"9160\",\"static/chunks/app/not-found-4961e9c6b44c93ad.js\"],\"\"]\nc:I[61060,[],\"\"]\n7:[\"username\",\"Алексиос\",\"d\"]\nd:[]\n"])</script><script>self.__next_f.push([1,"0:[\"$\",\"$L3\",null,{\"buildId\":\"PdIj9oEltRF_xsLSnjT1e\",\"assetPrefix\":\"\",\"urlParts\":[\"\",\"Алексиос\"],\"initialTree\":[\"\",{\"children\":[[\"username\",\"Алексиос\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[[\"username\",\"Алексиос\",\"d\"],{\"children\":[\"__PAGE__\",{},[[\"$L4\",\"$L5\",[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/a52125221b031caa.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]]],null],null]},[null,[\"$\",\"$L6\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"$7\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]],null]},[[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/005225d0ec675b50.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"link\",null,{\"href\":\"https://api.fontshare.com/v2/css?f[]=satoshi@1\u0026f[]=array@400\u0026display=swap\",\"rel\":\"stylesheet\"}],[\"$\",\"$L9\",null,{\"src\":\"https://sa.guns.lol/latest.js\",\"id\":\"_sa\"}],[\"$\",\"link\",null,{\"rel\":\"apple-touch-icon\",\"sizes\":\"180x180\",\"href\":\"https://assets.guns.lol/favicon/apple-touch-icon.png\"}],[\"$\",\"link\",null,{\"rel\":\"icon\",\"type\":\"image/png\",\"sizes\":\"32x32\",\"href\":\"https://assets.guns.lol/favicon/favicon-32x32.png\"}],[\"$\",\"link\",null,{\"rel\":\"icon\",\"type\":\"image/png\",\"sizes\":\"16x16\",\"href\":\"https://assets.guns.lol/favicon/favicon-16x16.png\"}],[\"$\",\"link\",null,{\"rel\":\"manifest\",\"href\":\"https://assets.guns.lol/favicon/site.webmanifest\"}]]}],[\"$\",\"body\",null,{\"children\":[\"$\",\"$L6\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[\"$\",\"div\",null,{\"className\":\"hWWYdG_acae7ef2ade5728\",\"children\":[\"$\",\"div\",null,{\"className\":\"ny0mcW_2a483bfff065871\",\"children\":[[\"$\",\"svg\",null,{\"xmlns\":\"http://www.w3.org/2000/svg\",\"width\":\"1em\",\"height\":\"1em\",\"viewBox\":\"0 0 24 24\",\"children\":[\"$\",\"path\",null,{\"fill\":\"currentColor\",\"d\":\"M13 2v14.5h-2V2zm-2 17h2.004v2.004H11z\"}]}],[\"$\",\"h1\",null,{\"children\":\"We couldnt find this page.\"}],[\"$\",\"h3\",null,{\"children\":\"The page you are looking for doesn't exist.\"}],[\"$\",\"div\",null,{\"className\":\"omcFLp_1091dd5bbcca39b\",\"children\":[\"$\",\"$La\",null,{\"href\":\"/\",\"children\":\"Go Home\"}]}]]}]}],\"notFoundStyles\":[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/a52125221b031caa.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]]}]}]]}]],null],null],\"couldBeIntercepted\":false,\"initialHead\":[null,\"$Lb\"],\"globalErrorComponent\":\"$c\",\"missingSlots\":\"$Wd\"}]\n"])</script><script>self.__next_f.push([1,"e:I[50989,[\"2972\",\"static/chunks/2972-3c247e65277a67e8.js\",\"7213\",\"static/chunks/7213-275a6e2c893ed645.js\",\"4942\",\"static/chunks/4942-1d681247d9b05394.js\",\"3719\",\"static/chunks/3719-48caaf1a376400f4.js\",\"816\",\"static/chunks/816-8da4fb060cbd3a16.js\",\"3766\",\"static/chunks/3766-c4d5f5c8b51f6b49.js\",\"5905\",\"static/chunks/5905-1c81ef4ee5abe841.js\",\"8003\",\"static/chunks/8003-eab033a3899727e4.js\",\"1898\",\"static/chunks/1898-f24eebdd22a915e0.js\",\"2420\",\"static/chunks/2420-c1e590fc2f8b5720.js\",\"47\",\"static/chunks/47-62f747fd61a399d6.js\",\"989\",\"static/chunks/989-9843aed7ce356e94.js\",\"4712\",\"static/chunks/app/%5Busername%5D/page-17d6447ef7ceb96e.js\"],\"default\"]\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"$Le\",null,{\"data\":{\"username\":\"Алексиос\",\"account_created\":1694613913,\"verified\":true,\"alias\":\"ALEXIOS\",\"config\":{\"socials\":[{\"social\":\"discord\",\"value\":\"https://discord.com/users/467923991131062277\",\"id\":\"8edfc6cd-8d24-46bb-b4e7-7c7c0b2cf185\"},{\"social\":\"instagram\",\"value\":\"https://instagram.com/iisme.night\",\"id\":\"e619e69d-dc10-4c2e-a7b8-3978827e7e73\",\"icon\":\"\"},{\"social\":\"facebook\",\"value\":\"https://facebook.com/natchanon.suklee/\",\"id\":\"fc85abd3-df5e-43c1-9b36-021a38d32377\",\"icon\":\"\"},{\"social\":\"roblox\",\"value\":\"https://roblox.com/users/1357758185/profile\",\"id\":\"4eb52d05-2cdb-48f7-b9b7-fc8e9f410947\",\"icon\":\"\"}],\"description\":\"@Adearien\",\"url\":\"https://r2.guns.lol/a728aa80-47c5-45c2-b677-c2ff989fc45a.mp4\",\"audio\":\"\",\"avatar\":\"\",\"color\":\"#ffffff\",\"text_color\":\"#ffffff\",\"bg_color\":\"#ffffff\",\"gradient_1\":\"#ffe4a6\",\"gradient_2\":\"#ffe4a6\",\"presence\":\"enabled\",\"monochrome\":true,\"animated_title\":true,\"custom_cursor\":\"https://r2.guns.lol/fb751899-d0d9-4bab-b2a2-07dd1de8ceee.cur\",\"page_views\":937,\"user_badges\":[{\"name\":\"premium\",\"enabled\":false}],\"display_name\":\"Алексиос\",\"profile_gradient\":false,\"background_effects\":\"tv\",\"volume_control\":true,\"premium\":{\"cursor_effects\":\"ghost\",\"font\":\"technor\",\"page_enter_text\":\"Click\",\"hide_badges\":false,\"hide_views\":false,\"effects_color\":\"#000000\",\"badge_color\":\"#ffffff\",\"layout\":\"modern\",\"monochrome_badges\":true,\"second_tab\":{\"spotify\":\"https://open.spotify.com/track/5IjSQa0GXzI2pNSciJXWWv?si=cf4f9d79da67416b\"},\"buttons\":[{\"button_title\":\"a\",\"button_url\":\"https://aaaa\",\"id\":\"fc5ccf2a-f497-4c76-b9d3-3d978a8120dc\"}],\"show_url\":true,\"text_align\":\"center\",\"button_shadow\":true,\"button_border_radius\":12,\"typewriter\":[\"MAMUAY<3    \u0026mygf;\u003c\",\"源 ALEXIOS\",\"@ALEXIOS\",\"源 Алексиос\",\"@Алексиос\"],\"typewriter_enabled\":true,\"banner\":\"\",\"border_width\":1,\"border_radius\":0,\"border_color\":\"#000000\",\"border_enabled\":false,\"second_tab_enabled\":true,\"animation\":\"unfold\",\"parallax_animation\":true,\"metadata\":{\"image\":\"\"}},\"custom_badges\":[],\"blur\":0,\"opacity\":0,\"username_effects\":\"typewriter\",\"use_discord_avatar\":false,\"badge_glow\":true,\"username_glow\":true,\"swap_colors\":true,\"icon_color\":\"#ffffff\",\"social_glow\":true},\"premium\":true,\"uid\":653,\"discord\":{\"username\":\"adearien\",\"id\":\"712940758340206662\",\"avatar\":[\"https://cdn.discordapp.com/avatars/712940758340206662/b00564b7c8b985b8a9c28f41088abe14.png\"],\"user_badges\":[\"HypeSquad Balance\",\"Active Developer\",\"Discord Nitro\"]},\"_C\":\"a1d8c6860b41196c571a2af5853e3083301b9e0c1f5192dab948337a673479a2\",\"_PS\":\"c7564c47a1972e668baad77f00dc5e0ef58593362116a40b39e9dcaa948\",\"_ts\":1730299959,\"success\":true,\"presence\":{\"username\":\".Алексиос\",\"avatar\":\"https://cdn.readawrite.com/articles/7379/7378639/thumbnail/large.gif?1\",\"avatarDecoration\":null,\"status\":\"idle\",\"lastSeen\":null,\"activities\":[{\"name\":\"Custom Status\",\"type\":4,\"details\":null,\"state\":\"ขอให้รักครั้งนี้ดีกว่าที่ผ่านมา\",\"emoji\":\"https://cdn.discordapp.com/emojis/1152174753336000572.webp\",\"image\":{},\"applicationId\":null}],\"success\":true}}}]\n"])</script><script>self.__next_f.push([1,"b:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"name\":\"theme-color\",\"content\":\"#ffffff\"}],[\"$\",\"meta\",\"2\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"3\",{\"children\":\"@Алексиос | guns.lol\"}],[\"$\",\"meta\",\"4\",{\"name\":\"description\",\"content\":\"MAMUAY<3  \u0026mygf;\u003c\"}],[\"$\",\"meta\",\"5\",{\"name\":\"author\",\"content\":\"@Алексиос | guns.lol\"}],[\"$\",\"meta\",\"6\",{\"property\":\"og:title\",\"content\":\"@Алексиос | guns.lol\"}],[\"$\",\"meta\",\"7\",{\"property\":\"og:description\",\"content\":\"MAMUAY<3   \u0026mygf;\u003c\"}],[\"$\",\"meta\",\"8\",{\"property\":\"og:image\",\"content\":\"https://og.guns.lol/api/og?username=Алексиос\u0026t=1730299959058\"}],[\"$\",\"meta\",\"9\",{\"property\":\"og:type\",\"content\":\"website\"}],[\"$\",\"meta\",\"10\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"11\",{\"name\":\"twitter:title\",\"content\":\"@Алексиос | guns.lol\"}],[\"$\",\"meta\",\"12\",{\"name\":\"twitter:description\",\"content\":\"MAMUAY<3   \u0026mygf;\u003c\"}],[\"$\",\"meta\",\"13\",{\"name\":\"twitter:image\",\"content\":\"https://og.guns.lol/api/og?username=Алексиос\u0026t=1730299959058\"}]]\n4:null\n"])</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8dac3af7fe7eb8ee',t:'MTczMDI5OTk1OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" data-cf-beacon="{" rayid":"8dac3af7fe7eb8ee","servertiming":{"name":{"cfextpri":true,"cfl4":true,"cfspeedbrain":true,"cfcachestatus":true}},"version":"2024.10.4","token":"2fe24d772b4146c9a06db032d45156c9"}"="" crossorigin="anonymous"></script>
+</body></html>
